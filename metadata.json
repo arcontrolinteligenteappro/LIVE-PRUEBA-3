@@ -1,0 +1,8 @@
+{
+  "name": "AR Control Live Studio",
+  "description": "A professional, mobile-first live production and streaming studio simulator, inspired by OBS and vMix. This web-based interface simulates the control panel for managing multiple sources, overlays, and multi-platform streaming with different production modes.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}

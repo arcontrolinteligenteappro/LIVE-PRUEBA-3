@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+      ============================================
+      Android 12+ Native Splash Screen Theme
+      ============================================
+      - This theme is applied to the starting window before the app's process has started.
+      - It provides a seamless transition from the system launcher to the app.
+      - It MUST be referenced in AndroidManifest.xml for the main launcher Activity.
+
+      - USAGE IN AndroidManifest.xml:
+        <application
+            ...
+            android:theme="@style/Theme.App.Main"> // Your main app theme
+            <activity
+                android:name=".MainActivity"
+                android:exported="true"
+                android:theme="@style/Theme.App.Starting" // <--- APPLY THIS STARTING THEME HERE
+                ...
+            >
+            ...
+            </activity>
+        </application>
+    -->
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+        <!-- (1) Set the splash screen's background color. -->
+        <item name="windowSplashScreenBackground">@color/splash_background_color</item>
+
+        <!-- (2) Use an icon as the splash screen's center logo. -->
+        <!-- IMPORTANT: You must create the following drawable resource. -->
+        <!-- res/drawable/ic_splash_logo.xml -->
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_splash_logo</item>
+        <item name="windowSplashScreenIconBackgroundColor">#0A0A0A</item>
+
+        <!-- (3) Set the theme that should be used after the splash screen is dismissed. -->
+        <!-- This should be your main application theme. -->
+        <item name="postSplashScreenTheme">@style/Theme.App.Main</item>
+    </style>
+
+    <!-- Define colors used by the splash theme -->
+    <color name="splash_background_color">#0A0A0A</color>
+
+    <!--
+      ============================================
+      REQUIRED VECTOR DRAWABLE
+      ============================================
+      - Create a file named `res/drawable/ic_splash_logo.xml` and paste the content below.
+      - This drawable is used by `windowSplashScreenAnimatedIcon`.
+
+      <?xml version="1.0" encoding="utf-8"?>
+      <vector xmlns:android="http://schemas.android.com/apk/res/android"
+          android:width="192dp"
+          android:height="192dp"
+          android:viewportWidth="192"
+          android:viewportHeight="192">
+          <path
+              android:fillColor="#00E5FF"
+              android:pathData="M78,160 L96,124 L114,160H78z"/>
+          <path
+              android:fillColor="#BF00FF"
+              android:pathData="M50,150 L108,32 L142,32 L84,150H50z"/>
+      </vector>
+    -->
+</resources>
